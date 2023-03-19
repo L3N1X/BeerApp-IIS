@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="beers">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long" />
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="TagLine" type="xs:string" />
+			<xs:element name="FirstBrewed" type="xs:string" />
+			<xs:element name="Description" type="xs:string" />
+			<xs:element name="ImageUrl" type="xs:string" />
+			<xs:element name="Abv" type="xs:double" />
+			<xs:element name="Ibu" type="xs:long" />
+			<xs:element name="TargetFg" type="xs:long" />
+			<xs:element name="TargetOg" type="xs:long" />
+			<xs:element name="Ebc" type="xs:long" />
+			<xs:element name="Srm" type="xs:long" />
+			<xs:element name="Ph" type="xs:double" />
+			<xs:element name="AttenuationLevel" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element> 
+</xs:schema>
