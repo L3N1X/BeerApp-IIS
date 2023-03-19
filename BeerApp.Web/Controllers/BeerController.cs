@@ -30,7 +30,7 @@ namespace BeerApp.Web.Controllers
             bool valid = false;
             if(validateBeerViewModel.Xml is not null)
             {
-                string schemaDocumentPath = Path.Combine(_webHostEnvironment.WebRootPath, "xml/note/note.xsd");
+                string schemaDocumentPath = Path.Combine(_webHostEnvironment.WebRootPath, SCHEMA_PATH);
                 try
                 {
                     _xmlValidationService.TryValidateWithXsd(validateBeerViewModel.Xml, schemaDocumentPath);
