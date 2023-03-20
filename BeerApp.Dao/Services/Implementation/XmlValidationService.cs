@@ -9,21 +9,33 @@ using System.Xml.Schema;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Text.RegularExpressions;
+using Commons.Xml.Relaxng;
+using System.Xml.Linq;
 
 namespace BeerApp.Dao.Services.Implementation
 {
     public class XmlValidationService : IXmlValidationService
     {
-        public bool ValidateWithRng(string xml)
+        public void TryValidateWithRng(string xmlString, string schemaDocumentPath)
         {
-            throw new NotImplementedException();
+            using (XmlReader instance = XmlReader.Create(new StringReader(xmlString)))
+            using (XmlReader grammar = new XmlTextReader(schemaDocumentPath))
+            using (var reader = new RelaxngValidatingReader(instance, grammar))
+            {
+                XDocument doc = XDocument.Load(reader);
+                reader.InvalidNodeFound += (source, message) =>
+                {
+                    //Console.WriteLine("Error: " + message);
+                    throw new Exception(message);
+                    //return true;
+                };
+            }
         }
 
         public void TryValidateWithXsd(string xmlString, string schemaDocumentPath)
         {
-            xmlString = Regex.Replace(xmlString, @"\t|\n|\r", "");
+            xmlString = CleanEscapeChars(xmlString);
 
-            var schemaSet = new XmlSchemaSet();
             XmlReader xmlReader;
 
             var settings = new XmlReaderSettings();
@@ -32,8 +44,6 @@ namespace BeerApp.Dao.Services.Implementation
             settings.ValidationFlags |= System.Xml.Schema.XmlSchemaValidationFlags.ReportValidationWarnings;
             settings.Schemas.Add(null, schemaDocumentPath);
             settings.ValidationEventHandler += ValidationEventHandle;
-
-            //Validate file
             xmlReader = XmlReader.Create(new StringReader(xmlString), settings);
             while (xmlReader.Read()) { };
 
@@ -43,6 +53,11 @@ namespace BeerApp.Dao.Services.Implementation
         private void ValidationEventHandle(object? sender, ValidationEventArgs e)
         {
             throw new Exception(e.Message);
+        }
+
+        private static string CleanEscapeChars(string value)
+        {
+            return Regex.Replace(value, @"\t|\n|\r", "");
         }
     }
 }

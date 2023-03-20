@@ -8,7 +8,7 @@ namespace BeerApp.Dao.Services.Interface
 {
     public interface IXmlValidationService
     {
-        void TryValidateWithXsd(string xml, string schemaDocumentPath);
-        bool ValidateWithRng(string xml);
+        void TryValidateWithXsd(string xmlString, string schemaDocumentPath);
+        void TryValidateWithRng(string xmlString, string schemaDocumentPath);
     }
 }

@@ -14,4 +14,8 @@
     <ProjectReference Include="..\BeerApp.Dao\BeerApp.Dao.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\xml\validated\" />
+  </ItemGroup>
+
 </Project>

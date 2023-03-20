@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="beers" xmlns="http://relaxng.org/ns/structure/1.0">
+	<oneOrMore>
+		<element name="beer">
+			<element name="Id">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="Name">
+				<text/>
+			</element>
+			<element name="TagLine">
+				<text/>
+			</element>
+			<element name="FirstBrwed">
+				<text/>
+			</element>
+			<element name="Description">
+				<text/>
+			</element>
+			<element name="ImageUrl">
+				<text/>
+			</element>
+			<element name="Abv">
+				<data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="Ibu">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="TargetFg">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="TargetOg">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="Ebc">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="Srm">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="Ph">
+				<data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+			<element name="AttenuationLevel">
+				<data type="integer" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"></data>
+			</element>
+		</element>
+	</oneOrMore>
+</element>
