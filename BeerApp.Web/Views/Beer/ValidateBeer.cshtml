@@ -1,11 +1,6 @@
 ﻿@model ValidateBeerViewModel
 @{
     ViewData["Title"] = "Beer XML";
-
-    List<SelectListItem> validationSchemas = new() {
-        new SelectListItem() { Value = "xsd", Text = "XSD", Selected = true },
-        new SelectListItem() { Value = "rng", Text = "RelaxNG" }
-    };
 }
 
 <form asp-controller="Beer" asp-action="ValidateBeer" method="post">
@@ -32,7 +27,7 @@
     <div>
         <div class="row">
             <div class="col-2">
-                <select name="validationSchema" class="form-control" asp-items="validationSchemas"></select>
+                <select asp-for="ValidationSchema" class="form-control" asp-items='new List<SelectListItem>(new[] { new SelectListItem{ Text="XSD", Value="xsd"}, new SelectListItem{ Text="RelaxNG", Value="rng"}})'></select>
             </div>
             <div class="col-10">
                 <button type="submit" class="btn btn-warning w-100">Validate</button>
