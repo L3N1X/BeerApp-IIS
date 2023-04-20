@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Beer XML";
 }
-
 <form asp-controller="Beer" asp-action="ValidateBeer" method="post">
     <div class="form-group">
         @if (Model?.Valid is not null)

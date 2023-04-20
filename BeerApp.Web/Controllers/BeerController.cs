@@ -3,6 +3,7 @@ using BeerApp.Web.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using System.Xml;
 
 namespace BeerApp.Web.Controllers
 {
@@ -17,8 +18,8 @@ namespace BeerApp.Web.Controllers
 
         public BeerController(IXmlValidationService xmlValidationService, IWebHostEnvironment webHostEnvironment)
         {
-            _xmlValidationService = xmlValidationService;
-            _webHostEnvironment = webHostEnvironment;
+            _xmlValidationService = xmlValidationService ?? throw new ArgumentNullException(nameof(xmlValidationService));
+            _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
         }
 
         [HttpGet]
@@ -61,5 +62,46 @@ namespace BeerApp.Web.Controllers
             }
             return View(validateBeerViewModel);
         }
+
+        [HttpGet]
+        public IActionResult SoapBeers()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SoapBeers([FromForm] SoapBeersViewModel soapBeersViewModel)
+        {
+            BeerServiceReference.BeerServiceSoapClient service 
+                = new BeerServiceReference.BeerServiceSoapClient(BeerServiceReference.BeerServiceSoapClient.EndpointConfiguration.BeerServiceSoap);
+
+            try
+            {
+                string xml = service.GetBeerXmlByQuery("testquery");
+
+                if (soapBeersViewModel.XPath is not null)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml(xml);
+                    XmlNodeList? beerNodes = xmlDoc.SelectNodes(soapBeersViewModel.XPath!);
+                    if (beerNodes is not null)
+                    {
+                        string sortedBeerXmlString = string.Join("", beerNodes.Cast<XmlNode>().Select(node => node.OuterXml));
+                        soapBeersViewModel.Xml = sortedBeerXmlString;
+                    }
+                }
+                else
+                {
+                    soapBeersViewModel.Xml = xml;
+                }
+            }
+            catch (Exception ex)
+            {
+                soapBeersViewModel.Message = ex.Message;
+            }
+
+            return View(soapBeersViewModel);
+        }
     }
+
 }

@@ -25,9 +25,7 @@ namespace BeerApp.Dao.Services.Implementation
                 XDocument doc = XDocument.Load(reader);
                 reader.InvalidNodeFound += (source, message) =>
                 {
-                    //Console.WriteLine("Error: " + message);
                     throw new Exception(message);
-                    //return true;
                 };
             }
         }

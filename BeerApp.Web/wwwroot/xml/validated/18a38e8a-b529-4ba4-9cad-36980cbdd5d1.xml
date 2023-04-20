@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<beers>
+	<beer>
+		<id>1</id>
+		<name>Dark beer</name>
+		<tagline>test</tagline>
+		<first_brewed>test</first_brewed>
+		<description>this is a description</description>
+		<image_url>this is an url</image_url>
+		<abv>234</abv>
+		<ibu>12451345</ibu>
+		<target_fg>1</target_fg>
+		<target_og>1</target_og>
+		<ebc>1</ebc>
+		<srm>1</srm>
+		<ph>3</ph>
+		<attenuation_level>1</attenuation_level>
+	</beer>
+	<beer>
+		<id>1</id>
+		<name>Dark beer</name>
+		<tagline>test</tagline>
+		<first_brewed>test</first_brewed>
+		<description>this is a description</description>
+		<image_url>this is an url</image_url>
+		<abv>234</abv>
+		<ibu>12451345</ibu>
+		<target_fg>1</target_fg>
+		<target_og>1</target_og>
+		<ebc>1</ebc>
+		<srm>1</srm>
+		<ph>3</ph>
+		<attenuation_level>1</attenuation_level>
+	</beer>
+</beers>

@@ -1,23 +1,30 @@
-﻿<?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:element name="beers">
-	<xs:complexType>
-		<xs:sequence>
-			<xs:element name="Id" type="xs:integer" />
-			<xs:element name="Name" type="xs:string" />
-			<xs:element name="TagLine" type="xs:string" />
-			<xs:element name="FirstBrewed" type="xs:string" />
-			<xs:element name="Description" type="xs:string" />
-			<xs:element name="ImageUrl" type="xs:string" />
-			<xs:element name="Abv" type="xs:double" />
-			<xs:element name="Ibu" type="xs:integer" />
-			<xs:element name="TargetFg" type="xs:integer" />
-			<xs:element name="TargetOg" type="xs:integer" />
-			<xs:element name="Ebc" type="xs:integer" />
-			<xs:element name="Srm" type="xs:integer" />
-			<xs:element name="Ph" type="xs:double" />
-			<xs:element name="AttenuationLevel" type="xs:integer" />
-		</xs:sequence>
-	</xs:complexType>
-</xs:element> 
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="beers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="beer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:integer" />
+              <xs:element name="name" type="xs:string" />
+              <xs:element name="tagline" type="xs:string" />
+              <xs:element name="first_brewed" type="xs:string" />
+              <xs:element name="description" type="xs:string" />
+              <xs:element name="image_url" type="xs:string" />
+              <xs:element name="abv" type="xs:integer" />
+              <xs:element name="ibu" type="xs:integer" />
+              <xs:element name="target_fg" type="xs:integer" />
+              <xs:element name="target_og" type="xs:integer" />
+              <xs:element name="ebc" type="xs:integer" />
+              <xs:element name="srm" type="xs:integer" />
+              <xs:element name="ph" type="xs:integer" />
+              <xs:element name="attenuation_level" type="xs:integer" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

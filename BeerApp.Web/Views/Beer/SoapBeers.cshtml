@@ -1,0 +1,27 @@
+﻿@model SoapBeersViewModel
+@{
+    ViewData["Title"] = "SOAP Beers";
+}
+<form asp-controller="Beer" asp-action="SoapBeers" method="post">
+    <div class="form-group">
+        @if (Model?.Message is not null)
+        {
+            <div class="alert alert-danger" role="alert">
+                The given XML data is not valid! @Model?.Message
+            </div>
+        }
+    </div>
+    <div class="form-group mb-3">
+        <textarea asp-for="Xml" rows="22" class="form-control" disabled="disabled"></textarea>
+    </div>
+    <div class="form-group mb-3">
+        <textarea asp-for="XPath" rows="4" class="form-control" placeholder="Type your XPath expression here. Example: /ArrayOfBeer/Beer[position()<3] ..."></textarea>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-success w-100">Invoke</button>
+            </div>
+        </div>
+    </div>
+</form>
