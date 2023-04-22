@@ -28,28 +28,28 @@ namespace BeerApp.Dao.Models
         public string? ImageUrl { get; set; }
 
         [JsonProperty("abv")]
-        public double Abv { get; set; }
+        public double? Abv { get; set; }
 
         [JsonProperty("ibu")]
-        public int Ibu { get; set; }
+        public double? Ibu { get; set; }
 
         [JsonProperty("target_fg")]
-        public int TargetFg { get; set; }
+        public double? TargetFg { get; set; }
 
         [JsonProperty("target_og")]
-        public int TargetOg { get; set; }
+        public double? TargetOg { get; set; }
 
         [JsonProperty("ebc")]
-        public int Ebc { get; set; }
+        public double? Ebc { get; set; }
 
         [JsonProperty("srm")]
-        public int Srm { get; set; }
+        public double? Srm { get; set; }
 
         [JsonProperty("ph")]
-        public double Ph { get; set; }
+        public double? Ph { get; set; }
 
         [JsonProperty("attenuation_level")]
-        public int AttenuationLevel { get; set; }
+        public double? AttenuationLevel { get; set; }
     }
 
 }

@@ -77,7 +77,7 @@ namespace BeerApp.Web.Controllers
 
             try
             {
-                string xml = service.GetBeerXmlByQuery("testquery");
+                string xml = service.GetBeerXml();
 
                 if (soapBeersViewModel.XPath is not null)
                 {

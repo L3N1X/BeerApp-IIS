@@ -89,6 +89,13 @@ namespace BeerServiceReference
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBeerXmlByQuery", ReplyAction="*")]
         System.Threading.Tasks.Task<BeerServiceReference.GetBeerXmlByQueryResponse> GetBeerXmlByQueryAsync(BeerServiceReference.GetBeerXmlByQueryRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetBeerXmlResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBeerXml", ReplyAction="*")]
+        BeerServiceReference.GetBeerXmlResponse GetBeerXml(BeerServiceReference.GetBeerXmlRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBeerXml", ReplyAction="*")]
+        System.Threading.Tasks.Task<BeerServiceReference.GetBeerXmlResponse> GetBeerXmlAsync(BeerServiceReference.GetBeerXmlRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -323,6 +330,78 @@ namespace BeerServiceReference
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetBeerXmlRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetBeerXml", Namespace="http://tempuri.org/", Order=0)]
+        public BeerServiceReference.GetBeerXmlRequestBody Body;
+        
+        public GetBeerXmlRequest()
+        {
+        }
+        
+        public GetBeerXmlRequest(BeerServiceReference.GetBeerXmlRequestBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetBeerXmlRequestBody
+    {
+        
+        public GetBeerXmlRequestBody()
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetBeerXmlResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetBeerXmlResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BeerServiceReference.GetBeerXmlResponseBody Body;
+        
+        public GetBeerXmlResponse()
+        {
+        }
+        
+        public GetBeerXmlResponse(BeerServiceReference.GetBeerXmlResponseBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetBeerXmlResponseBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string GetBeerXmlResult;
+        
+        public GetBeerXmlResponseBody()
+        {
+        }
+        
+        public GetBeerXmlResponseBody(string GetBeerXmlResult)
+        {
+            this.GetBeerXmlResult = GetBeerXmlResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     public interface BeerServiceSoapChannel : BeerServiceReference.BeerServiceSoap, System.ServiceModel.IClientChannel
     {
@@ -449,6 +528,33 @@ namespace BeerServiceReference
             inValue.Body = new BeerServiceReference.GetBeerXmlByQueryRequestBody();
             inValue.Body.query = query;
             return ((BeerServiceReference.BeerServiceSoap)(this)).GetBeerXmlByQueryAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BeerServiceReference.GetBeerXmlResponse BeerServiceReference.BeerServiceSoap.GetBeerXml(BeerServiceReference.GetBeerXmlRequest request)
+        {
+            return base.Channel.GetBeerXml(request);
+        }
+        
+        public string GetBeerXml()
+        {
+            BeerServiceReference.GetBeerXmlRequest inValue = new BeerServiceReference.GetBeerXmlRequest();
+            inValue.Body = new BeerServiceReference.GetBeerXmlRequestBody();
+            BeerServiceReference.GetBeerXmlResponse retVal = ((BeerServiceReference.BeerServiceSoap)(this)).GetBeerXml(inValue);
+            return retVal.Body.GetBeerXmlResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BeerServiceReference.GetBeerXmlResponse> BeerServiceReference.BeerServiceSoap.GetBeerXmlAsync(BeerServiceReference.GetBeerXmlRequest request)
+        {
+            return base.Channel.GetBeerXmlAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BeerServiceReference.GetBeerXmlResponse> GetBeerXmlAsync()
+        {
+            BeerServiceReference.GetBeerXmlRequest inValue = new BeerServiceReference.GetBeerXmlRequest();
+            inValue.Body = new BeerServiceReference.GetBeerXmlRequestBody();
+            return ((BeerServiceReference.BeerServiceSoap)(this)).GetBeerXmlAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

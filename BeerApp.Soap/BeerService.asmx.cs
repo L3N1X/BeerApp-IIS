@@ -45,6 +45,20 @@ namespace BeerApp.Soap
                 string xmlString = writer.ToString();
                 return xmlString;
             }
+            throw new Exception("Failed to serialize string");
+        }
+
+        [WebMethod]
+        public string GetBeerXml()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Beer>));
+            using (StringWriter writer = new StringWriter())
+            {
+                var beers = _repository.GetAll().ToList();
+                serializer.Serialize(writer, beers);
+                string xmlString = writer.ToString();
+                return xmlString;
+            }
             throw new Exception("Can't serialize string");
         }
     }

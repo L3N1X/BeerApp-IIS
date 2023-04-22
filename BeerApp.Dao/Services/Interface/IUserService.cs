@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace BeerApp.Dao.Services.Interface
 {
-    public interface IBeerService
+    public interface IUserService
     {
-        ICollection<Beer> GetAll(); 
+        User TryLogin(string username, string password);
+        ICollection<User> GetUsers();   
     }
 }
