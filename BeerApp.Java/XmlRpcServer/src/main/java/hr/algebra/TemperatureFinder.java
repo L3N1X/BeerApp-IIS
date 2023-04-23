@@ -3,7 +3,6 @@ package hr.algebra;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.swing.text.Document;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,17 +15,17 @@ public class TemperatureFinder {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-        Document cityTemperatures = (Document) documentBuilder.parse(DHMZ_URL);
+        org.w3c.dom.Document cityTemperatures = documentBuilder.parse(DHMZ_URL);
 
         XPathFactory xPathFactory = XPathFactory.newInstance();
         XPath xPath = xPathFactory.newXPath();
 
-        String xPathQuery = String.format("Hrvatska/Grad[contains(GradIme, \"%s\")]/Podaci/Temp", cityName);
+        String xPathQuery = String.format("Hrvatska/Grad[contains(GradIme, \"%s\")]/Podatci/Temp", cityName);
         XPathExpression xPathTempExpression = xPath.compile(xPathQuery);
         NodeList temperatureNodeList = (NodeList) (xPathTempExpression.evaluate(cityTemperatures, XPathConstants.NODESET));
         if(temperatureNodeList.getLength() > 0) {
             return temperatureNodeList.item(0).getTextContent();
         }
-        return String.format("No temperatures found for %s", cityName);
+        return "NOCANDO";
     }
 }

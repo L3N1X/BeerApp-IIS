@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Freemanke.Xmlrpc" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.29.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

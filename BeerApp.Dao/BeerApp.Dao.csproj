@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Freemanke.Xmlrpc" Version="1.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RelaxNG" Version="3.2.3" />
   </ItemGroup>
