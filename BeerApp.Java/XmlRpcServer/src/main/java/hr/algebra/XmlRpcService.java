@@ -1,15 +1,19 @@
 package hr.algebra;
 
+import hr.algebra.models.Beers;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
 import java.io.IOException;
+import java.io.StringReader;
 
-public class TemperatureFinder {
+public class XmlRpcService {
     public static final String DHMZ_URL = "https://vrijeme.hr/hrvatska_n.xml";
     public String findTemperatureByCityName(String cityName) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -27,5 +31,15 @@ public class TemperatureFinder {
             return temperatureNodeList.item(0).getTextContent();
         }
         return "NOCANDO";
+    }
+
+    public String validateBeerXml(String xml){
+        try {
+            var context = JAXBContext.newInstance(Beers.class);
+            var beers = (Beers) context.createUnmarshaller().unmarshal(new StringReader(xml));
+        } catch (JAXBException e) {
+            return e.getMessage();
+        }
+        return "VALID";
     }
 }

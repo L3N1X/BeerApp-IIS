@@ -26,7 +26,7 @@
     <div>
         <div class="row">
             <div class="col-2">
-                <select asp-for="ValidationSchema" class="form-control" asp-items='new List<SelectListItem>(new[] { new SelectListItem{ Text="XSD", Value="xsd"}, new SelectListItem{ Text="RelaxNG", Value="rng"}})'></select>
+                <select asp-for="ValidationSchema" class="form-control" asp-items='new List<SelectListItem>(new[] { new SelectListItem{ Text="XSD", Value="xsd"}, new SelectListItem{ Text="RelaxNG", Value="rng"}, new SelectListItem{ Text = "JAXB", Value = "jaxb"}})'></select>
             </div>
             <div class="col-10">
                 <button type="submit" class="btn btn-warning w-100">Validate</button>

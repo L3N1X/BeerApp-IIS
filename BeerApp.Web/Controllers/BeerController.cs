@@ -1,5 +1,6 @@
 ﻿using BeerApp.Dao.Services.Interface;
 using BeerApp.Web.Models;
+using CookComputing.XmlRpc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
@@ -45,6 +46,22 @@ namespace BeerApp.Web.Controllers
                         string schemaDocumentPath = Path.Combine(_webHostEnvironment.WebRootPath, RNG_SCHEMA_PATH);
                         _xmlValidationService.TryValidateWithRng(validateBeerViewModel.Xml, schemaDocumentPath);
                     }
+                    else if (validateBeerViewModel.ValidationSchema == "jaxb")
+                    {
+                        IISXmlRpcService iisXmlRpcService = XmlRpcProxyGen.Create<IISXmlRpcService>();
+                        string xmlRpcResponse = iisXmlRpcService.ValidateBeerXml(validateBeerViewModel.Xml).Trim();
+                        if(xmlRpcResponse != "VALID")
+                        {
+                            validateBeerViewModel.Valid = false;
+                            validateBeerViewModel.Message = xmlRpcResponse;
+                        }
+                        else
+                        {
+                            validateBeerViewModel.Valid = true;
+                        }
+
+                        return View(validateBeerViewModel);
+                    }
                     validateBeerViewModel.Valid = true;
                     string validatedXmlPath = Path.Combine(_webHostEnvironment.WebRootPath, $"{VALIDATED_XML_FOLDER}{Guid.NewGuid()}.xml");
                     System.IO.File.WriteAllText(validatedXmlPath, validateBeerViewModel.Xml);
@@ -72,7 +89,7 @@ namespace BeerApp.Web.Controllers
         [HttpPost]
         public IActionResult SoapBeers([FromForm] SoapBeersViewModel soapBeersViewModel)
         {
-            BeerServiceReference.BeerServiceSoapClient service 
+            BeerServiceReference.BeerServiceSoapClient service
                 = new BeerServiceReference.BeerServiceSoapClient(BeerServiceReference.BeerServiceSoapClient.EndpointConfiguration.BeerServiceSoap);
 
             try

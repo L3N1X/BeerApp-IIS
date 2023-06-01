@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-16"?>
+<beers xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <beer>
+    <id>1</id>
+    <name>IPA</name>
+    <tagline>Bold and Hoppy</tagline>
+    <first_brewed>2005</first_brewed>
+    <description>India Pale Ale is a hoppy beer style within the broader category of pale ale.</description>
+    <image_url>https://example.com/ipa.jpg</image_url>
+    <abv>6</abv>
+    <ibu>60</ibu>
+    <target_fg>1012</target_fg>
+    <target_og>1050</target_og>
+    <ebc>12</ebc>
+    <srm>6</srm>
+    <ph>4</ph>
+    <attenuation_level>80</attenuation_level>
+  </beer>
+  <beer>
+    <id>2</id>
+    <name>Stout</name>
+    <tagline>Dark and Rich</tagline>
+    <first_brewed>1750</first_brewed>
+    <description>Stout is a dark, top-fermented beer with a number of variations.</description>
+    <image_url>https://example.com/stout.jpg</image_url>
+    <abv>7</abv>
+    <ibu>40</ibu>
+    <target_fg>1015</target_fg>
+    <target_og>1060</target_og>
+    <ebc>40</ebc>
+    <srm>20</srm>
+    <ph>4</ph>
+    <attenuation_level>75</attenuation_level>
+  </beer>
+  <beer>
+    <id>3</id>
+    <name>Pilsner</name>
+    <tagline>Crisp and Refreshing</tagline>
+    <first_brewed>1842</first_brewed>
+    <description>Pilsner is a pale lager with a clean, crisp taste.</description>
+    <image_url>https://example.com/pilsner.jpg</image_url>
+    <abv>5</abv>
+    <ibu>30</ibu>
+    <target_fg>1010</target_fg>
+    <target_og>1045</target_og>
+    <ebc>8</ebc>
+    <srm>4</srm>
+    <ph>4</ph>
+    <attenuation_level>78</attenuation_level>
+  </beer>
+  <beer>
+    <id>4</id>
+    <name>Wheat Beer</name>
+    <tagline>Light and Fruity</tagline>
+    <first_brewed>1602</first_brewed>
+    <description>Wheat beer is a beer, usually top-fermented, which is brewed with a large proportion of wheat relative to the amount of malted barley.</description>
+    <image_url>https://example.com/wheatbeer.jpg</image_url>
+    <abv>5</abv>
+    <ibu>20</ibu>
+    <target_fg>1012</target_fg>
+    <target_og>1048</target_og>
+    <ebc>10</ebc>
+    <srm>5</srm>
+    <ph>4</ph>
+    <attenuation_level>75</attenuation_level>
+  </beer>
+  <beer>
+    <id>5</id>
+    <name>Porter</name>
+    <tagline>Robust and Malty</tagline>
+    <first_brewed>1722</first_brewed>
+    <description>Porter is a dark style of beer originating in London in the 18th century.</description>
+    <image_url>https://example.com/porter.jpg</image_url>
+    <abv>6</abv>
+    <ibu>30</ibu>
+    <target_fg>1014</target_fg>
+    <target_og>1055</target_og>
+    <ebc>30</ebc>
+    <srm>15</srm>
+    <ph>4</ph>
+    <attenuation_level>74</attenuation_level>
+  </beer>
+  <beer>
+    <id>6</id>
+    <name>Amber Ale</name>
+    <tagline>Malty and Caramel</tagline>
+    <first_brewed>1970</first_brewed>
+    <description>Amber ale is a style of beer that has a medium to dark reddish-brown color.</description>
+    <image_url>https://example.com/amberale.jpg</image_url>
+    <abv>5</abv>
+    <ibu>25</ibu>
+    <target_fg>1012</target_fg>
+    <target_og>1050</target_og>
+    <ebc>20</ebc>
+    <srm>10</srm>
+    <ph>4</ph>
+    <attenuation_level>76</attenuation_level>
+  </beer>
+  <beer>
+    <id>7</id>
+    <name>Saison</name>
+    <tagline>Spicy and Fruity</tagline>
+    <first_brewed>1880</first_brewed>
+    <description>Saison is a pale ale that is highly carbonated, fruity, spicy, and often bottle conditioned.</description>
+    <image_url>https://example.com/saison.jpg</image_url>
+    <abv>6</abv>
+    <ibu>35</ibu>
+    <target_fg>1008</target_fg>
+    <target_og>1055</target_og>
+    <ebc>12</ebc>
+    <srm>6</srm>
+    <ph>4</ph>
+    <attenuation_level>85</attenuation_level>
+  </beer>
+  <beer>
+    <id>8</id>
+    <name>Brown Ale</name>
+    <tagline>Toasty and Nutty</tagline>
+    <first_brewed>1930</first_brewed>
+    <description>Brown ale is a style of beer with a dark amber or brown color.</description>
+    <image_url>https://example.com/brownale.jpg</image_url>
+    <abv>5</abv>
+    <ibu>25</ibu>
+    <target_fg>1010</target_fg>
+    <target_og>1050</target_og>
+    <ebc>20</ebc>
+    <srm>10</srm>
+    <ph>4</ph>
+    <attenuation_level>80</attenuation_level>
+  </beer>
+  <beer>
+    <id>9</id>
+    <name>Pale Lager</name>
+    <tagline>Clean and Crisp</tagline>
+    <first_brewed>1842</first_brewed>
+    <description>Pale lager is a very pale-to-golden-colored lager beer with a crisp, clean taste.</description>
+    <image_url>https://example.com/palelager.jpg</image_url>
+    <abv>4</abv>
+    <ibu>20</ibu>
+    <target_fg>1008</target_fg>
+    <target_og>1045</target_og>
+    <ebc>8</ebc>
+    <srm>4</srm>
+    <ph>4</ph>
+    <attenuation_level>80</attenuation_level>
+  </beer>
+  <beer>
+    <id>10</id>
+    <name>Red Ale</name>
+    <tagline>Caramel and Bitter</tagline>
+    <first_brewed>1880</first_brewed>
+    <description>Red ale is a style of beer that is characterized by its red color and balance between malt and hops.</description>
+    <image_url>https://example.com/redale.jpg</image_url>
+    <abv>5</abv>
+    <ibu>35</ibu>
+    <target_fg>1012</target_fg>
+    <target_og>1050</target_og>
+    <ebc>16</ebc>
+    <srm>8</srm>
+    <ph>4</ph>
+    <attenuation_level>78</attenuation_level>
+  </beer>
+</beers>

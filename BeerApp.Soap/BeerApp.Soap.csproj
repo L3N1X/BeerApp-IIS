@@ -75,7 +75,7 @@
       <DependentUpon>BeerService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LegacyDao\Beer.cs" />
+    <Compile Include="LegacyDao\beers.cs" />
     <Compile Include="LegacyDao\SimpleBeerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

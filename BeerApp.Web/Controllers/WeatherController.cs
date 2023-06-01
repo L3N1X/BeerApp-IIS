@@ -21,7 +21,7 @@ namespace BeerApp.Web.Controllers
                 weatherViewModel.Message = "Please enter a city name.";
                 return View(weatherViewModel);
             }
-            IDhmzService dhmzService = XmlRpcProxyGen.Create<IDhmzService>();
+            IISXmlRpcService dhmzService = XmlRpcProxyGen.Create<IISXmlRpcService>();
             weatherViewModel.Temperature = dhmzService.FindTemperatureByCityName(weatherViewModel.City).Trim();
             return View(weatherViewModel);
         }

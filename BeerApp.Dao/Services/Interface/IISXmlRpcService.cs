@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 namespace BeerApp.Dao.Services.Interface
 {
     [XmlRpcUrl("http://localhost:6969/")]
-    public interface IDhmzService : IXmlRpcProxy
+    public interface IISXmlRpcService : IXmlRpcProxy
     {
-        [XmlRpcMethod("Temperature.findTemperatureByCityName")]
+        [XmlRpcMethod("IISXmlRpcService.findTemperatureByCityName")]
         string FindTemperatureByCityName(string cityName);
+
+        [XmlRpcMethod("IISXmlRpcService.validateBeerXml")]
+        string ValidateBeerXml(string xml);
     }
 }

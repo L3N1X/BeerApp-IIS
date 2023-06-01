@@ -20,46 +20,48 @@ namespace BeerApp.Soap
     public class BeerService : System.Web.Services.WebService
     {
 
+        //53021 PORT
+
         private readonly SimpleBeerRepository _repository = new SimpleBeerRepository();
 
-        [WebMethod]
-        public List<Beer> GetBeers()
-        {
-            return _repository.GetAll().ToList();
-        }
+        //[WebMethod]
+        //public  GetBeers()
+        //{
+        //    return _repository.GetBeerCollection();
+        //}
 
-        [WebMethod]
-        public List<Beer> GetByName(string name)
-        {
-            return _repository.GetByName(name).ToList();
-        }
+        //[WebMethod]
+        //public Beer GetByName(string name)
+        //{
+        //    return _repository.GetByName(name);
+        //}
 
         [WebMethod]
         public string GetBeerXmlByQuery(string query)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Beer>));
-            using (StringWriter writer = new StringWriter())
-            {
-                var beers = _repository.GetAll().ToList();
-                serializer.Serialize(writer, beers);
-                string xmlString = writer.ToString();
-                return xmlString;
-            }
+            //XmlSerializer serializer = new XmlSerializer(typeof(List<Beer>));
+            //using (StringWriter writer = new StringWriter())
+            //{
+            //    var beers = _repository.GetAll()
+            //    serializer.Serialize(writer, beers);
+            //    string xmlString = writer.ToString();
+            //    return xmlString;
+            //}
             throw new Exception("Failed to serialize string");
         }
 
         [WebMethod]
         public string GetBeerXml()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Beer>));
+            XmlSerializer serializer = new XmlSerializer(typeof(beers));
             using (StringWriter writer = new StringWriter())
             {
-                var beers = _repository.GetAll().ToList();
+                var beers = _repository.GetBeerCollection();
                 serializer.Serialize(writer, beers);
                 string xmlString = writer.ToString();
                 return xmlString;
             }
-            throw new Exception("Can't serialize string");
+            throw new Exception("Failed to serialize string");
         }
     }
 }

@@ -14,7 +14,7 @@ public class Main {
         XmlRpcServer xmlRpcServer = webServer.getXmlRpcServer();
         PropertyHandlerMapping propertyHandlerMapping = new PropertyHandlerMapping();
         try {
-            propertyHandlerMapping.addHandler("Temperature", TemperatureFinder.class);
+            propertyHandlerMapping.addHandler("IISXmlRpcService", XmlRpcService.class);
             xmlRpcServer.setHandlerMapping(propertyHandlerMapping);
             webServer.start();
             System.out.println("[XMLRPC-SERVER]: Server starting on http://localhost:" + PORT);
